@@ -41,4 +41,20 @@ class UniqueCollectionTest {
 
         assert(originalSize == 2 && newSize == 0) {"Items not cleared"}
     }
+
+    @Test
+    fun removeItem() {
+        collection.addItem(Item("item1"))
+        collection.addItem(Item("item2"))
+        collection.addItem(Item("item3"))
+
+        val origSize = collection.size()
+        collection.remove(Item("item1"))
+        collection.remove(Item("item3"))
+
+        val newSize = collection.size()
+
+        assert(origSize == 3 && newSize == 1) {"Items not cleared"}
+
+    }
 }
